@@ -1,0 +1,11 @@
+opencv-python
+Pillow
+transformers[agents]
+diffusers 
+accelerate 
+datasets 
+torch 
+soundfile 
+sentencepiece 
+openai
+retrying

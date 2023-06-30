@@ -1,0 +1,1 @@
+Images from a streaming camera source will be stored here.
