@@ -161,3 +161,4 @@ cython_debug/
 
 logfile.log*
 *.jpg
+!dog_chicken.jpg

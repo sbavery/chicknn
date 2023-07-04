@@ -12,10 +12,10 @@ log_backups = 2
 
 # Camera Settings
 images_dir = "artifacts/images/"
-img_filepath = images_dir + "latest_frame.jpg"
+img_filepath = images_dir + "dog_chicken.jpg" #"latest_frame.jpg"
 rtsp_url = "rtsp://admin:noob@192.168.0.12:8554/Streaming/Channels/102"
-collect_rtsp_img = True
-save_rtsp_img = True
+collect_rtsp_img = False
+save_rtsp_img = False
 rtsp_retries = 5
 rtsp_timeout_ms = 50
 rtsp_buffer_size = 1

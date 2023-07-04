@@ -7,6 +7,7 @@ from chicknn.util import setup_logger
 import chicknn.config as config
 import chicknn.camera as camera
 import chicknn.agents as agents
+import chicknn.chains as chains
 
 logger = None
 
@@ -34,16 +35,14 @@ def main():
             if image:
                 if config.agent_source: agents.initialize_agent()
                 caption = agents.caption_image(image)
-                
-                # img_results = agents.analyze_image(image, config.predators)
-                # for result in img_results.keys():
-                #     logger.info(f"{result}: {img_results[result]}")
-                # caption = img_results["caption"]
-
                 logger.info(caption)
 
+                objects = ', '.join(config.predators)
+                query = f"Does the image contain one or more of {objects}?"
+                response = chains.query_image(config.img_filepath, query)
+
                 for label in config.predators:
-                    if label in caption:
+                    if label in caption or label in response:
                         logger.warning(f"Found {label}")
                         datestring = datetime.today().strftime('%Y-%m-%dT%H-%M-%S.%f')[:-3]
                         img_name = f"{datestring}_{label}.jpg"
